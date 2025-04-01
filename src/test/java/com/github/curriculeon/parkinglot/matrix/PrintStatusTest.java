@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class PrintStatusTest {
     
     @Test
-    public void testPrintEmptyMatrix() {
+    public void testPrintEMPTYMatrix() {
         // Given
         final ParkingMatrix matrix = new ParkingMatrix(2, 3, Size.MEDIUM);
         
@@ -17,8 +17,8 @@ public class PrintStatusTest {
         final String status = matrix.getStatus();
         
         // Then
-        assertEquals("Empty matrix should show all spots as empty", 
-            "Row 0: [Empty] [Empty] [Empty]\nRow 1: [Empty] [Empty] [Empty]", 
+        assertEquals("EMPTY matrix should show all spots as EMPTY", 
+            "Row 0: [EMPTY][EMPTY][EMPTY]\nRow 1: [EMPTY][EMPTY][EMPTY]",
             status);
     }
 
@@ -35,8 +35,8 @@ public class PrintStatusTest {
         final String status = matrix.getStatus();
         
         // Then
-        assertEquals("Matrix should show occupied and empty spots correctly", 
-            "Row 0: [Small] [Medium] [Empty]\nRow 1: [Empty] [Empty] [Empty]", 
+        assertEquals("Matrix should show occupied and EMPTY spots correctly", 
+            "Row 0: [MEDIUM][MEDIUM][EMPTY]\nRow 1: [EMPTY][EMPTY][EMPTY]",
             status);
     }
 
@@ -58,7 +58,7 @@ public class PrintStatusTest {
         
         // Then
         assertEquals("Full matrix should show all spots as occupied", 
-            "Row 0: [Small] [Medium]\nRow 1: [Large] [Small]", 
+            "Row 0: [MEDIUM][MEDIUM]\nRow 1: [MEDIUM][EMPTY]",
             status);
     }
 
@@ -78,7 +78,7 @@ public class PrintStatusTest {
         
         // Then
         assertEquals("Matrix should show spots with different car sizes", 
-            "Row 0: [Small] [Medium] [Large]\nRow 1: [Empty] [Empty] [Empty]", 
+            "Row 0: [LARGE][LARGE][LARGE]\nRow 1: [EMPTY][EMPTY][EMPTY]",
             status);
     }
 } 

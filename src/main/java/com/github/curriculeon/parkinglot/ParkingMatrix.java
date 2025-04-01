@@ -19,13 +19,14 @@ public class ParkingMatrix {
     }
 
 
-    public boolean parkCar(Car car) {
+    public ParkingCell parkCar(Car car) {
         for (ParkingRow row : rows) {
-            if (row.parkCar(car)) {
-                return true;
+            final ParkingCell parkingCell = row.parkCar(car);
+            if (parkingCell != null) {
+                return parkingCell;
             }
         }
-        return false;
+        return null;
     }
 
     public String getStatus() {
@@ -34,14 +35,12 @@ public class ParkingMatrix {
 
     @Override
     public String toString() {
+        int rowNumber = 0;
         final StringBuilder sb = new StringBuilder();
         for (final ParkingRow row : rows) {
-            for (final ParkingCell cell : row.getCells()) {
-                sb.append(cell.isOccupied() ? "[" + cell.getSpotSize() + "]" : "[EMPTY]");
-            }
-            sb.append(System.lineSeparator());
+            sb.append("Row " + rowNumber++ + ": " + row.toString());
         }
-        return sb.toString();
+        return sb.toString().replaceAll("\n$", "");
     }
 
     public ParkingRow getRow(final int i) {

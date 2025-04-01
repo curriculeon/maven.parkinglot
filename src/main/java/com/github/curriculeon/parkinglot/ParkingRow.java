@@ -1,9 +1,10 @@
 package com.github.curriculeon.parkinglot;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class ParkingRow {
+public class ParkingRow implements Iterable<ParkingCell> {
     private final List<ParkingCell> cells;
 
     public ParkingRow(List<ParkingCell> cells) {
@@ -18,13 +19,13 @@ public class ParkingRow {
         this.cells = cellList;
     }
 
-    public boolean parkCar(Car car) {
+    public ParkingCell parkCar(Car car) {
         for (ParkingCell cell : cells) {
             if (cell.park(car)) {
-                return true;
+                return cell;
             }
         }
-        return false;
+        return null;
     }
 
     public List<ParkingCell> getCells() {
@@ -37,5 +38,19 @@ public class ParkingRow {
 
     public ParkingCell getCell(int colIndex) {
         return getCells().get(colIndex);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        for (final ParkingCell cell : this.getCells()) {
+            sb.append(cell.isOccupied() ? "[" + cell.getSpotSize() + "]" : "[EMPTY]");
+        }
+        return sb.append("\n").toString();
+    }
+
+    @Override
+    public Iterator<ParkingCell> iterator() {
+        return cells.iterator();
     }
 }

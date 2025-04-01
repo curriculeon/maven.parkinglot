@@ -22,12 +22,11 @@ public class ParkingCell {
     }
 
     public Car unparkCar() {
+        final Car car = parkedCar;
         if (isOccupied()) {
-            Car car = parkedCar;
             parkedCar = null;
-            return car;
         }
-        return null;
+        return car;
     }
 
     public boolean isOccupied() {
