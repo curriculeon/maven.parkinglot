@@ -3,14 +3,14 @@ package com.github.curriculeon.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingMatrix {
+public class ParkingLot {
     private final List<ParkingRow> rows;
 
-    public ParkingMatrix(List<ParkingRow> rows) {
+    public ParkingLot(List<ParkingRow> rows) {
         this.rows = new ArrayList<>(rows);
     }
 
-    public ParkingMatrix(int numRows, int numCols, Size size) {
+    public ParkingLot(int numRows, int numCols, CarSize size) {
         final List<ParkingRow> rowList = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             rowList.add(new ParkingRow(numCols, size));

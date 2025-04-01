@@ -1,10 +1,10 @@
 package com.github.curriculeon.parkinglot;
 
 public class ParkingCell {
-    private final Size spotSize;
+    private final CarSize spotSize;
     private Car parkedCar;
 
-    public ParkingCell(Size spotSize) {
+    public ParkingCell(CarSize spotSize) {
         this.spotSize = spotSize;
         this.parkedCar = null;
     }
@@ -33,7 +33,7 @@ public class ParkingCell {
         return parkedCar != null;
     }
 
-    public Size getSpotSize() {
+    public CarSize getSpotSize() {
         return spotSize;
     }
 } 

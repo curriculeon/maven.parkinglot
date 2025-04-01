@@ -1,8 +1,8 @@
 package com.github.curriculeon.parkinglot.matrix;
 
 import com.github.curriculeon.parkinglot.Car;
-import com.github.curriculeon.parkinglot.ParkingMatrix;
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.ParkingLot;
+import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,8 +11,8 @@ public class UnparkCarTest {
     @Test
     public void testUnparkCarFromOccupiedSpot() {
         // Given
-        final ParkingMatrix matrix = new ParkingMatrix(2, 3, Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         matrix.parkCar(car);
         
         // When
@@ -27,7 +27,7 @@ public class UnparkCarTest {
     @Test
     public void testUnparkCarFromEmptySpot() {
         // Given
-        final ParkingMatrix matrix = new ParkingMatrix(2, 3, Size.MEDIUM);
+        final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
         
         // When
         final Car unparkedCar = matrix.unparkCar(0, 0);
@@ -40,7 +40,7 @@ public class UnparkCarTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testUnparkCarFromInvalidIndices() {
         // Given
-        final ParkingMatrix matrix = new ParkingMatrix(2, 3, Size.MEDIUM);
+        final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
         
         // When
         final Car unparkedCar = matrix.unparkCar(5, 5);
@@ -52,10 +52,10 @@ public class UnparkCarTest {
     @Test
     public void testUnparkCarFromOccupiedSpotInSecondRow() {
         // Given
-        final ParkingMatrix matrix = new ParkingMatrix(2, 2, Size.MEDIUM);
-        final Car car1 = new Car(Size.SMALL);
-        final Car car2 = new Car(Size.SMALL);
-        final Car car3 = new Car(Size.SMALL);
+        final ParkingLot matrix = new ParkingLot(2, 2, CarSize.MEDIUM);
+        final Car car1 = new Car(CarSize.SMALL);
+        final Car car2 = new Car(CarSize.SMALL);
+        final Car car3 = new Car(CarSize.SMALL);
         matrix.parkCar(car1);
         matrix.parkCar(car2);
         matrix.parkCar(car3);

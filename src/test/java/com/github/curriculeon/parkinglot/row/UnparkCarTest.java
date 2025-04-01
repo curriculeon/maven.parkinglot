@@ -2,7 +2,7 @@ package com.github.curriculeon.parkinglot.row;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingRow;
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,8 +11,8 @@ public class UnparkCarTest {
     @Test
     public void testUnparkCarFromOccupiedSpot() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         row.parkCar(car);
         
         // When
@@ -27,7 +27,7 @@ public class UnparkCarTest {
     @Test
     public void testUnparkCarFromEmptySpot() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.MEDIUM);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
         
         // When
         final Car unparkedCar = row.unparkCar(0);
@@ -40,7 +40,7 @@ public class UnparkCarTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testUnparkCarFromInvalidIndex() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.MEDIUM);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
         
         // When
         final Car unparkedCar = row.unparkCar(5);
@@ -52,9 +52,9 @@ public class UnparkCarTest {
     @Test
     public void testUnparkCarFromOccupiedSpotInMiddle() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.MEDIUM);
-        final Car car1 = new Car(Size.SMALL);
-        final Car car2 = new Car(Size.SMALL);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
+        final Car car1 = new Car(CarSize.SMALL);
+        final Car car2 = new Car(CarSize.SMALL);
         row.parkCar(car1);
         row.parkCar(car2);
         

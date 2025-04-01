@@ -11,7 +11,7 @@ public class ParkingRow implements Iterable<ParkingCell> {
         this.cells = new ArrayList<>(cells);
     }
 
-    public ParkingRow(final int numCols, final Size size) {
+    public ParkingRow(final int numCols, final CarSize size) {
         final List<ParkingCell> cellList = new ArrayList<>();
         for (int i = 0; i < numCols; i++) {
             cellList.add(new ParkingCell(size));

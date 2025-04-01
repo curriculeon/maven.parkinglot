@@ -2,7 +2,7 @@ package com.github.curriculeon.parkinglot.cell;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingCell;
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,8 +11,8 @@ public class UnparkTest {
     @Test
     public void testUnparkFromOccupiedSpot() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         cell.park(car);
         
         // When
@@ -27,7 +27,7 @@ public class UnparkTest {
     @Test
     public void testUnparkFromEmptySpot() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.MEDIUM);
+        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
         
         // When
         final Car unparkedCar = cell.unparkCar();
@@ -40,8 +40,8 @@ public class UnparkTest {
     @Test
     public void testUnparkMultipleTimes() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         cell.park(car);
         
         // When

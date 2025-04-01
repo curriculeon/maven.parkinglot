@@ -5,7 +5,7 @@ import org.junit.Test;
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingCell;
 import com.github.curriculeon.parkinglot.ParkingRow;
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.CarSize;
 
 import static org.junit.Assert.*;
 import java.util.Arrays;
@@ -17,12 +17,12 @@ public class ParkCarInRowTest {
     public void testParkCarInFirstAvailableSpot() {
         // Given
         final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(Size.SMALL),
-            new ParkingCell(Size.MEDIUM),
-            new ParkingCell(Size.LARGE)
+            new ParkingCell(CarSize.SMALL),
+            new ParkingCell(CarSize.MEDIUM),
+            new ParkingCell(CarSize.LARGE)
         );
         final ParkingRow row = new ParkingRow(cells);
-        final Car car = new Car(Size.SMALL);
+        final Car car = new Car(CarSize.SMALL);
         
         // When
         final boolean result = row.parkCar(car) != null;
@@ -36,13 +36,13 @@ public class ParkCarInRowTest {
     public void testParkCarInSecondSpot() {
         // Given
         final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(Size.SMALL),
-            new ParkingCell(Size.MEDIUM),
-            new ParkingCell(Size.LARGE)
+            new ParkingCell(CarSize.SMALL),
+            new ParkingCell(CarSize.MEDIUM),
+            new ParkingCell(CarSize.LARGE)
         );
         final ParkingRow row = new ParkingRow(cells);
-        final Car car1 = new Car(Size.SMALL);
-        final Car car2 = new Car(Size.MEDIUM);
+        final Car car1 = new Car(CarSize.SMALL);
+        final Car car2 = new Car(CarSize.MEDIUM);
         
         // When
         row.parkCar(car1);
@@ -57,12 +57,12 @@ public class ParkCarInRowTest {
     public void testParkCarWhenNoSuitableSpotAvailable() {
         // Given
         final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(Size.SMALL),
-            new ParkingCell(Size.SMALL),
-            new ParkingCell(Size.SMALL)
+            new ParkingCell(CarSize.SMALL),
+            new ParkingCell(CarSize.SMALL),
+            new ParkingCell(CarSize.SMALL)
         );
         final ParkingRow row = new ParkingRow(cells);
-        final Car car = new Car(Size.LARGE);
+        final Car car = new Car(CarSize.LARGE);
         
         // When
         final boolean result = row.parkCar(car) != null;
@@ -74,18 +74,13 @@ public class ParkCarInRowTest {
     @Test
     public void testParkCarWhenAllSpotsOccupied() {
         // Given
-        final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(Size.MEDIUM),
-            new ParkingCell(Size.MEDIUM),
-            new ParkingCell(Size.MEDIUM)
-        );
-        final ParkingRow row = new ParkingRow(cells);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
         for(ParkingCell cell : row) {
-            row.parkCar(new Car(Size.SMALL));
+            row.parkCar(new Car(CarSize.SMALL));
         }
         
         // When
-        final boolean result = row.parkCar(new Car(Size.SMALL)) != null;
+        final boolean result = row.parkCar(new Car(CarSize.SMALL)) != null;
         
         // Then
         assertFalse("Should not be able to park car when all spots are occupied", result);

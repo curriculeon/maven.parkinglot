@@ -2,7 +2,7 @@ package com.github.curriculeon.parkinglot.row;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingRow;
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,8 +11,8 @@ public class ParkCarTest {
     @Test
     public void testParkCarInEmptyRow() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         
         // When
         final boolean result = row.parkCar(car) != null;
@@ -25,10 +25,10 @@ public class ParkCarTest {
     @Test
     public void testParkCarInFullRow() {
         // Given
-        final ParkingRow row = new ParkingRow(2, Size.MEDIUM);
-        final Car car1 = new Car(Size.SMALL);
-        final Car car2 = new Car(Size.SMALL);
-        final Car car3 = new Car(Size.SMALL);
+        final ParkingRow row = new ParkingRow(2, CarSize.MEDIUM);
+        final Car car1 = new Car(CarSize.SMALL);
+        final Car car2 = new Car(CarSize.SMALL);
+        final Car car3 = new Car(CarSize.SMALL);
         
         // When
         row.parkCar(car1);
@@ -42,8 +42,8 @@ public class ParkCarTest {
     @Test
     public void testParkCarThatDoesNotFit() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.SMALL);
-        final Car car = new Car(Size.LARGE);
+        final ParkingRow row = new ParkingRow(3, CarSize.SMALL);
+        final Car car = new Car(CarSize.LARGE);
         
         // When
         final boolean result = row.parkCar(car) != null;
@@ -56,9 +56,9 @@ public class ParkCarTest {
     @Test
     public void testParkCarInNextAvailableSpot() {
         // Given
-        final ParkingRow row = new ParkingRow(3, Size.MEDIUM);
-        final Car car1 = new Car(Size.SMALL);
-        final Car car2 = new Car(Size.SMALL);
+        final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
+        final Car car1 = new Car(CarSize.SMALL);
+        final Car car2 = new Car(CarSize.SMALL);
         
         // When
         row.parkCar(car1);

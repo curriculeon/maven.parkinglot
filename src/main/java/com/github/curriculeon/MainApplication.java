@@ -9,15 +9,15 @@ public class MainApplication {
     public static void main(String[] args) {
         // Create parking cells with different sizes
         List<ParkingCell> row1Cells = Arrays.asList(
-                new ParkingCell(Size.SMALL),
-                new ParkingCell(Size.MEDIUM),
-                new ParkingCell(Size.LARGE)
+                new ParkingCell(CarSize.SMALL),
+                new ParkingCell(CarSize.MEDIUM),
+                new ParkingCell(CarSize.LARGE)
         );
 
         List<ParkingCell> row2Cells = Arrays.asList(
-                new ParkingCell(Size.MEDIUM),
-                new ParkingCell(Size.LARGE),
-                new ParkingCell(Size.SMALL)
+                new ParkingCell(CarSize.MEDIUM),
+                new ParkingCell(CarSize.LARGE),
+                new ParkingCell(CarSize.SMALL)
         );
 
         // Create parking rows
@@ -27,24 +27,24 @@ public class MainApplication {
         );
 
         // Create parking matrix
-        ParkingMatrix parkingMatrix = new ParkingMatrix(rows);
+        ParkingLot parkingLot = new ParkingLot(rows);
 
         // Create some cars
-        Car smallCar = new Car(Size.SMALL);
-        Car largeCar = new Car(Size.LARGE);
+        Car smallCar = new Car(CarSize.SMALL);
+        Car largeCar = new Car(CarSize.LARGE);
 
         // Print initial status
         System.out.println("Initial parking status:");
-        System.out.println(parkingMatrix.getStatus());
+        System.out.println(parkingLot.getStatus());
 
         // Park a small car
         System.out.println("Parking a small car...");
-        parkingMatrix.parkCar(smallCar);
-        System.out.println(parkingMatrix.getStatus());
+        parkingLot.parkCar(smallCar);
+        System.out.println(parkingLot.getStatus());
 
         // Park a large car
         System.out.println("Parking a large car...");
-        parkingMatrix.parkCar(largeCar);
-        System.out.println(parkingMatrix.getStatus());
+        parkingLot.parkCar(largeCar);
+        System.out.println(parkingLot.getStatus());
     }
 }

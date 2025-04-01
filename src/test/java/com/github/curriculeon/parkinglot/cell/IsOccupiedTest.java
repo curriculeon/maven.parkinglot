@@ -2,7 +2,7 @@ package com.github.curriculeon.parkinglot.cell;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingCell;
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ public class IsOccupiedTest {
     @Test
     public void testNewSpotIsNotOccupied() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.MEDIUM);
+        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
         
         // When
         final boolean isOccupied = cell.isOccupied();
@@ -23,8 +23,8 @@ public class IsOccupiedTest {
     @Test
     public void testSpotIsOccupiedAfterParking() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         cell.park(car);
         
         // When
@@ -37,8 +37,8 @@ public class IsOccupiedTest {
     @Test
     public void testSpotIsNotOccupiedAfterUnparking() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.MEDIUM);
-        final Car car = new Car(Size.SMALL);
+        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final Car car = new Car(CarSize.SMALL);
         cell.park(car);
         cell.unparkCar();
         
@@ -52,8 +52,8 @@ public class IsOccupiedTest {
     @Test
     public void testSpotRemainsUnoccupiedAfterFailedPark() {
         // Given
-        final ParkingCell cell = new ParkingCell(Size.SMALL);
-        final Car car = new Car(Size.LARGE);
+        final ParkingCell cell = new ParkingCell(CarSize.SMALL);
+        final Car car = new Car(CarSize.LARGE);
         cell.park(car);
         
         // When

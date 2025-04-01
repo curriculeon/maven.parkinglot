@@ -1,6 +1,6 @@
 package com.github.curriculeon.parkinglot.size;
 
-import com.github.curriculeon.parkinglot.Size;
+import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -9,8 +9,8 @@ public class CanFitInTest {
     @Test
     public void testSmallCanFitInSmall() {
         // Given
-        final Size carSize = Size.SMALL;
-        final Size spotSize = Size.SMALL;
+        final CarSize carSize = CarSize.SMALL;
+        final CarSize spotSize = CarSize.SMALL;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -22,8 +22,8 @@ public class CanFitInTest {
     @Test
     public void testSmallCanFitInMedium() {
         // Given
-        final Size carSize = Size.SMALL;
-        final Size spotSize = Size.MEDIUM;
+        final CarSize carSize = CarSize.SMALL;
+        final CarSize spotSize = CarSize.MEDIUM;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -35,8 +35,8 @@ public class CanFitInTest {
     @Test
     public void testSmallCanFitInLarge() {
         // Given
-        final Size carSize = Size.SMALL;
-        final Size spotSize = Size.LARGE;
+        final CarSize carSize = CarSize.SMALL;
+        final CarSize spotSize = CarSize.LARGE;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -48,8 +48,8 @@ public class CanFitInTest {
     @Test
     public void testMediumCannotFitInSmall() {
         // Given
-        final Size carSize = Size.MEDIUM;
-        final Size spotSize = Size.SMALL;
+        final CarSize carSize = CarSize.MEDIUM;
+        final CarSize spotSize = CarSize.SMALL;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -61,8 +61,8 @@ public class CanFitInTest {
     @Test
     public void testMediumCanFitInMedium() {
         // Given
-        final Size carSize = Size.MEDIUM;
-        final Size spotSize = Size.MEDIUM;
+        final CarSize carSize = CarSize.MEDIUM;
+        final CarSize spotSize = CarSize.MEDIUM;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -74,8 +74,8 @@ public class CanFitInTest {
     @Test
     public void testMediumCanFitInLarge() {
         // Given
-        final Size carSize = Size.MEDIUM;
-        final Size spotSize = Size.LARGE;
+        final CarSize carSize = CarSize.MEDIUM;
+        final CarSize spotSize = CarSize.LARGE;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -87,8 +87,8 @@ public class CanFitInTest {
     @Test
     public void testLargeCannotFitInSmall() {
         // Given
-        final Size carSize = Size.LARGE;
-        final Size spotSize = Size.SMALL;
+        final CarSize carSize = CarSize.LARGE;
+        final CarSize spotSize = CarSize.SMALL;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -100,8 +100,8 @@ public class CanFitInTest {
     @Test
     public void testLargeCannotFitInMedium() {
         // Given
-        final Size carSize = Size.LARGE;
-        final Size spotSize = Size.MEDIUM;
+        final CarSize carSize = CarSize.LARGE;
+        final CarSize spotSize = CarSize.MEDIUM;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);
@@ -113,8 +113,8 @@ public class CanFitInTest {
     @Test
     public void testLargeCanFitInLarge() {
         // Given
-        final Size carSize = Size.LARGE;
-        final Size spotSize = Size.LARGE;
+        final CarSize carSize = CarSize.LARGE;
+        final CarSize spotSize = CarSize.LARGE;
         
         // When
         final boolean canFit = carSize.canFitIn(spotSize);

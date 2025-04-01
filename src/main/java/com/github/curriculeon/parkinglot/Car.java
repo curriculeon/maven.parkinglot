@@ -1,13 +1,13 @@
 package com.github.curriculeon.parkinglot;
 
 public class Car {
-    private final Size size;
+    private final CarSize size;
 
-    public Car(Size size) {
+    public Car(CarSize size) {
         this.size = size;
     }
 
-    public Size getSize() {
+    public CarSize getSize() {
         return size;
     }
 } 
