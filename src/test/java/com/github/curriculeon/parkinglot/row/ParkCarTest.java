@@ -15,7 +15,7 @@ public class ParkCarTest {
         final Car car = new Car(CarSize.SMALL);
         
         // When
-        final boolean result = row.parkCar(car) != null;
+        final boolean result = row.park(car) != null;
         
         // Then
         assertTrue("Should be able to park car in empty row", result);
@@ -31,9 +31,9 @@ public class ParkCarTest {
         final Car car3 = new Car(CarSize.SMALL);
         
         // When
-        row.parkCar(car1);
-        row.parkCar(car2);
-        final boolean result = row.parkCar(car3) != null;
+        row.park(car1);
+        row.park(car2);
+        final boolean result = row.park(car3) != null;
         
         // Then
         assertFalse("Should not be able to park car in full row", result);
@@ -46,7 +46,7 @@ public class ParkCarTest {
         final Car car = new Car(CarSize.LARGE);
         
         // When
-        final boolean result = row.parkCar(car) != null;
+        final boolean result = row.park(car) != null;
         
         // Then
         assertFalse("Should not be able to park car that doesn't fit", result);
@@ -61,8 +61,8 @@ public class ParkCarTest {
         final Car car2 = new Car(CarSize.SMALL);
         
         // When
-        row.parkCar(car1);
-        final boolean result = row.parkCar(car2) != null;
+        row.park(car1);
+        final boolean result = row.park(car2) != null;
         
         // Then
         assertTrue("Should be able to park car in next available spot", result);

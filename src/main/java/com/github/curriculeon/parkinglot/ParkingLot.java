@@ -19,9 +19,9 @@ public class ParkingLot {
     }
 
 
-    public ParkingCell parkCar(Car car) {
+    public ParkingCell park(Car car) {
         for (ParkingRow row : rows) {
-            final ParkingCell parkingCell = row.parkCar(car);
+            final ParkingCell parkingCell = row.park(car);
             if (parkingCell != null) {
                 return parkingCell;
             }

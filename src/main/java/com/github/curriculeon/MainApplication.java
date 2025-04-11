@@ -39,12 +39,12 @@ public class MainApplication {
 
         // Park a small car
         System.out.println("Parking a small car...");
-        parkingLot.parkCar(smallCar);
+        parkingLot.park(smallCar);
         System.out.println(parkingLot.getStatus());
 
         // Park a large car
         System.out.println("Parking a large car...");
-        parkingLot.parkCar(largeCar);
+        parkingLot.park(largeCar);
         System.out.println(parkingLot.getStatus());
     }
 }

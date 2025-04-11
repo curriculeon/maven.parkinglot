@@ -1,4 +1,4 @@
-package com.github.curriculeon.parkinglot.matrix;
+package com.github.curriculeon.parkinglot.parkinglot;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingLot;
@@ -13,7 +13,7 @@ public class UnparkCarTest {
         // Given
         final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
         final Car car = new Car(CarSize.SMALL);
-        matrix.parkCar(car);
+        matrix.park(car);
         
         // When
         final Car unparkedCar = matrix.unparkCar(0, 0);
@@ -56,9 +56,9 @@ public class UnparkCarTest {
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.SMALL);
         final Car car3 = new Car(CarSize.SMALL);
-        matrix.parkCar(car1);
-        matrix.parkCar(car2);
-        matrix.parkCar(car3);
+        matrix.park(car1);
+        matrix.park(car2);
+        matrix.park(car3);
         
         // When
         final Car unparkedCar = matrix.unparkCar(1, 0);

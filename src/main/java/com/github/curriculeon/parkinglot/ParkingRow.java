@@ -19,7 +19,7 @@ public class ParkingRow implements Iterable<ParkingCell> {
         this.cells = cellList;
     }
 
-    public ParkingCell parkCar(Car car) {
+    public ParkingCell park(Car car) {
         for (ParkingCell cell : cells) {
             if (cell.park(car)) {
                 return cell;

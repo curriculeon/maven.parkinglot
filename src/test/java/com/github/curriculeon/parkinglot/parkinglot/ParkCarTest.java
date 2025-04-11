@@ -1,4 +1,4 @@
-package com.github.curriculeon.parkinglot.matrix;
+package com.github.curriculeon.parkinglot.parkinglot;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingLot;
@@ -15,7 +15,7 @@ public class ParkCarTest {
         final Car car = new Car(CarSize.SMALL);
         
         // When
-        final boolean result = matrix.parkCar(car) != null;
+        final boolean result = matrix.park(car) != null;
         
         // Then
         assertTrue("Should be able to park car in empty matrix", result);
@@ -33,11 +33,11 @@ public class ParkCarTest {
         final Car car5 = new Car(CarSize.SMALL);
         
         // When
-        matrix.parkCar(car1);
-        matrix.parkCar(car2);
-        matrix.parkCar(car3);
-        matrix.parkCar(car4);
-        final boolean result = matrix.parkCar(car5) != null;
+        matrix.park(car1);
+        matrix.park(car2);
+        matrix.park(car3);
+        matrix.park(car4);
+        final boolean result = matrix.park(car5) != null;
         
         // Then
         assertFalse("Should not be able to park car in full matrix", result);
@@ -50,7 +50,7 @@ public class ParkCarTest {
         final Car car = new Car(CarSize.LARGE);
         
         // When
-        final boolean result = matrix.parkCar(car) != null;
+        final boolean result = matrix.park(car) != null;
         
         // Then
         assertFalse("Should not be able to park car that doesn't fit", result);
@@ -66,9 +66,9 @@ public class ParkCarTest {
         final Car car3 = new Car(CarSize.SMALL);
         
         // When
-        matrix.parkCar(car1);
-        matrix.parkCar(car2);
-        final boolean result = matrix.parkCar(car3) != null;
+        matrix.park(car1);
+        matrix.park(car2);
+        final boolean result = matrix.park(car3) != null;
         
         // Then
         assertTrue("Should be able to park car in next available row", result);

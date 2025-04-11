@@ -1,4 +1,4 @@
-package com.github.curriculeon.parkinglot.matrix;
+package com.github.curriculeon.parkinglot.parkinglot;
 
 import com.github.curriculeon.parkinglot.Car;
 import com.github.curriculeon.parkinglot.ParkingLot;
@@ -28,8 +28,8 @@ public class PrintStatusTest {
         final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.MEDIUM);
-        matrix.parkCar(car1);
-        matrix.parkCar(car2);
+        matrix.park(car1);
+        matrix.park(car2);
         
         // When
         final String status = matrix.getStatus();
@@ -48,10 +48,10 @@ public class PrintStatusTest {
         final Car car2 = new Car(CarSize.MEDIUM);
         final Car car3 = new Car(CarSize.LARGE);
         final Car car4 = new Car(CarSize.SMALL);
-        matrix.parkCar(car1);
-        matrix.parkCar(car2);
-        matrix.parkCar(car3);
-        matrix.parkCar(car4);
+        matrix.park(car1);
+        matrix.park(car2);
+        matrix.park(car3);
+        matrix.park(car4);
         
         // When
         final String status = matrix.getStatus();
@@ -69,9 +69,9 @@ public class PrintStatusTest {
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.MEDIUM);
         final Car car3 = new Car(CarSize.LARGE);
-        matrix.parkCar(car1);
-        matrix.parkCar(car2);
-        matrix.parkCar(car3);
+        matrix.park(car1);
+        matrix.park(car2);
+        matrix.park(car3);
         
         // When
         final String status = matrix.getStatus();

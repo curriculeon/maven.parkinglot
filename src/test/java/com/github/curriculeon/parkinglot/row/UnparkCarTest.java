@@ -13,7 +13,7 @@ public class UnparkCarTest {
         // Given
         final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
         final Car car = new Car(CarSize.SMALL);
-        row.parkCar(car);
+        row.park(car);
         
         // When
         final Car unparkedCar = row.unparkCar(0);
@@ -55,8 +55,8 @@ public class UnparkCarTest {
         final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.SMALL);
-        row.parkCar(car1);
-        row.parkCar(car2);
+        row.park(car1);
+        row.park(car2);
         
         // When
         final Car unparkedCar = row.unparkCar(1);
