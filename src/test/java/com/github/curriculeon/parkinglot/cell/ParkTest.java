@@ -1,7 +1,7 @@
 package com.github.curriculeon.parkinglot.cell;
 
 import com.github.curriculeon.parkinglot.Car;
-import com.github.curriculeon.parkinglot.ParkingCell;
+import com.github.curriculeon.parkinglot.ParkingSpot;
 import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,7 +11,7 @@ public class ParkTest {
     @Test
     public void testParkCarInEmptySpot() {
         // Given
-        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final ParkingSpot cell = new ParkingSpot(CarSize.MEDIUM);
         final Car car = new Car(CarSize.SMALL);
         
         // When
@@ -25,7 +25,7 @@ public class ParkTest {
     @Test
     public void testParkCarInOccupiedSpot() {
         // Given
-        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final ParkingSpot cell = new ParkingSpot(CarSize.MEDIUM);
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.SMALL);
         
@@ -40,7 +40,7 @@ public class ParkTest {
     @Test
     public void testParkCarThatDoesNotFit() {
         // Given
-        final ParkingCell cell = new ParkingCell(CarSize.SMALL);
+        final ParkingSpot cell = new ParkingSpot(CarSize.SMALL);
         final Car car = new Car(CarSize.LARGE);
         
         // When
@@ -54,7 +54,7 @@ public class ParkTest {
     @Test
     public void testParkCarInSameSizeSpot() {
         // Given
-        final ParkingCell cell = new ParkingCell(CarSize.MEDIUM);
+        final ParkingSpot cell = new ParkingSpot(CarSize.MEDIUM);
         final Car car = new Car(CarSize.MEDIUM);
         
         // When
@@ -68,7 +68,7 @@ public class ParkTest {
     @Test
     public void testParkCarInLargerSpot() {
         // Given
-        final ParkingCell cell = new ParkingCell(CarSize.LARGE);
+        final ParkingSpot cell = new ParkingSpot(CarSize.LARGE);
         final Car car = new Car(CarSize.SMALL);
         
         // When

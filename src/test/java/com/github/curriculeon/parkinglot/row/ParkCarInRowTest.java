@@ -3,7 +3,7 @@ package com.github.curriculeon.parkinglot.row;
 import org.junit.Test;
 
 import com.github.curriculeon.parkinglot.Car;
-import com.github.curriculeon.parkinglot.ParkingCell;
+import com.github.curriculeon.parkinglot.ParkingSpot;
 import com.github.curriculeon.parkinglot.ParkingRow;
 import com.github.curriculeon.parkinglot.CarSize;
 
@@ -16,10 +16,10 @@ public class ParkCarInRowTest {
     @Test
     public void testParkCarInFirstAvailableSpot() {
         // Given
-        final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(CarSize.SMALL),
-            new ParkingCell(CarSize.MEDIUM),
-            new ParkingCell(CarSize.LARGE)
+        final List<ParkingSpot> cells = Arrays.asList(
+            new ParkingSpot(CarSize.SMALL),
+            new ParkingSpot(CarSize.MEDIUM),
+            new ParkingSpot(CarSize.LARGE)
         );
         final ParkingRow row = new ParkingRow(cells);
         final Car car = new Car(CarSize.SMALL);
@@ -35,10 +35,10 @@ public class ParkCarInRowTest {
     @Test
     public void testParkCarInSecondSpot() {
         // Given
-        final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(CarSize.SMALL),
-            new ParkingCell(CarSize.MEDIUM),
-            new ParkingCell(CarSize.LARGE)
+        final List<ParkingSpot> cells = Arrays.asList(
+            new ParkingSpot(CarSize.SMALL),
+            new ParkingSpot(CarSize.MEDIUM),
+            new ParkingSpot(CarSize.LARGE)
         );
         final ParkingRow row = new ParkingRow(cells);
         final Car car1 = new Car(CarSize.SMALL);
@@ -56,10 +56,10 @@ public class ParkCarInRowTest {
     @Test
     public void testParkCarWhenNoSuitableSpotAvailable() {
         // Given
-        final List<ParkingCell> cells = Arrays.asList(
-            new ParkingCell(CarSize.SMALL),
-            new ParkingCell(CarSize.SMALL),
-            new ParkingCell(CarSize.SMALL)
+        final List<ParkingSpot> cells = Arrays.asList(
+            new ParkingSpot(CarSize.SMALL),
+            new ParkingSpot(CarSize.SMALL),
+            new ParkingSpot(CarSize.SMALL)
         );
         final ParkingRow row = new ParkingRow(cells);
         final Car car = new Car(CarSize.LARGE);
@@ -75,7 +75,7 @@ public class ParkCarInRowTest {
     public void testParkCarWhenAllSpotsOccupied() {
         // Given
         final ParkingRow row = new ParkingRow(3, CarSize.MEDIUM);
-        for(ParkingCell cell : row) {
+        for(ParkingSpot cell : row) {
             cell.park(new Car(CarSize.SMALL));
         }
         

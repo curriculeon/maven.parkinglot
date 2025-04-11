@@ -19,7 +19,7 @@ public class GetSizeTest {
         final Car car = new Car(expectedSize);
 
         // When
-        final CarSize actualSize = car.getSize();
+        final CarSize actualSize = car.getCarSize();
 
         // Then
         assertEquals("Car size should be LARGE", expectedSize, actualSize);

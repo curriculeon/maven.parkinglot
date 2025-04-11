@@ -1,16 +1,17 @@
 package com.github.curriculeon.parkinglot;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class ParkingLot {
+public class ParkingLot implements Iterable<ParkingRow> {
     private final List<ParkingRow> rows;
 
-    public ParkingLot(List<ParkingRow> rows) {
+    public ParkingLot(final List<ParkingRow> rows) {
         this.rows = new ArrayList<>(rows);
     }
 
-    public ParkingLot(int numRows, int numCols, CarSize size) {
+    public ParkingLot(final int numRows, final int numCols, final CarSize size) {
         final List<ParkingRow> rowList = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             rowList.add(new ParkingRow(numCols, size));
@@ -19,9 +20,9 @@ public class ParkingLot {
     }
 
 
-    public ParkingCell park(Car car) {
-        for (ParkingRow row : rows) {
-            final ParkingCell parkingCell = row.park(car);
+    public ParkingSpot park(Car car) {
+        for (final ParkingRow row : rows) {
+            final ParkingSpot parkingCell = row.park(car);
             if (parkingCell != null) {
                 return parkingCell;
             }
@@ -48,5 +49,10 @@ public class ParkingLot {
     }
     public Car unparkCar(final int rowIndex, final int colIndex) {
         return getRow(rowIndex).unparkCar(colIndex);
+    }
+
+    @Override
+    public Iterator<ParkingRow> iterator() {
+        return rows.iterator();
     }
 }

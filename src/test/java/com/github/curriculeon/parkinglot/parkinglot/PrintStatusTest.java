@@ -11,13 +11,13 @@ public class PrintStatusTest {
     @Test
     public void testPrintEMPTYMatrix() {
         // Given
-        final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
+        final ParkingLot parkingLot = new ParkingLot(2, 3, CarSize.MEDIUM);
         
         // When
-        final String status = matrix.getStatus();
+        final String status = parkingLot.getStatus();
         
         // Then
-        assertEquals("EMPTY matrix should show all spots as EMPTY", 
+        assertEquals("EMPTY parkingLot should show all spots as EMPTY", 
             "Row 0: [EMPTY][EMPTY][EMPTY]\nRow 1: [EMPTY][EMPTY][EMPTY]",
             status);
     }
@@ -25,14 +25,14 @@ public class PrintStatusTest {
     @Test
     public void testPrintPartiallyOccupiedMatrix() {
         // Given
-        final ParkingLot matrix = new ParkingLot(2, 3, CarSize.MEDIUM);
+        final ParkingLot parkingLot = new ParkingLot(2, 3, CarSize.MEDIUM);
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.MEDIUM);
-        matrix.park(car1);
-        matrix.park(car2);
+        parkingLot.park(car1);
+        parkingLot.park(car2);
         
         // When
-        final String status = matrix.getStatus();
+        final String status = parkingLot.getStatus();
         
         // Then
         assertEquals("Matrix should show occupied and EMPTY spots correctly", 
@@ -43,21 +43,21 @@ public class PrintStatusTest {
     @Test
     public void testPrintFullMatrix() {
         // Given
-        final ParkingLot matrix = new ParkingLot(2, 2, CarSize.MEDIUM);
+        final ParkingLot parkingLot = new ParkingLot(2, 2, CarSize.MEDIUM);
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.MEDIUM);
         final Car car3 = new Car(CarSize.LARGE);
         final Car car4 = new Car(CarSize.SMALL);
-        matrix.park(car1);
-        matrix.park(car2);
-        matrix.park(car3);
-        matrix.park(car4);
+        parkingLot.park(car1);
+        parkingLot.park(car2);
+        parkingLot.park(car3);
+        parkingLot.park(car4);
         
         // When
-        final String status = matrix.getStatus();
+        final String status = parkingLot.getStatus();
         
         // Then
-        assertEquals("Full matrix should show all spots as occupied", 
+        assertEquals("Full parkingLot should show all spots as occupied", 
             "Row 0: [MEDIUM][MEDIUM]\nRow 1: [MEDIUM][EMPTY]",
             status);
     }
@@ -65,16 +65,16 @@ public class PrintStatusTest {
     @Test
     public void testPrintMatrixWithDifferentSizes() {
         // Given
-        final ParkingLot matrix = new ParkingLot(2, 3, CarSize.LARGE);
+        final ParkingLot parkingLot = new ParkingLot(2, 3, CarSize.LARGE);
         final Car car1 = new Car(CarSize.SMALL);
         final Car car2 = new Car(CarSize.MEDIUM);
         final Car car3 = new Car(CarSize.LARGE);
-        matrix.park(car1);
-        matrix.park(car2);
-        matrix.park(car3);
+        parkingLot.park(car1);
+        parkingLot.park(car2);
+        parkingLot.park(car3);
         
         // When
-        final String status = matrix.getStatus();
+        final String status = parkingLot.getStatus();
         
         // Then
         assertEquals("Matrix should show spots with different car sizes", 

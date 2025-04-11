@@ -1,19 +1,19 @@
 package com.github.curriculeon.parkinglot;
 
-public class ParkingCell {
+public class ParkingSpot {
     private final CarSize spotSize;
     private Car parkedCar;
 
-    public ParkingCell(CarSize spotSize) {
+    public ParkingSpot(final CarSize spotSize) {
         this.spotSize = spotSize;
         this.parkedCar = null;
     }
 
-    public boolean canFit(Car car) {
-        return car.getSize().canFitIn(spotSize);
+    public boolean canFit(final Car car) {
+        return car.getCarSize().canFitIn(spotSize);
     }
 
-    public boolean park(Car car) {
+    public boolean park(final Car car) {
         if (!isOccupied() && canFit(car)) {
             parkedCar = car;
             return true;

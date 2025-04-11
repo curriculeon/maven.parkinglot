@@ -8,16 +8,16 @@ import java.util.List;
 public class MainApplication {
     public static void main(String[] args) {
         // Create parking cells with different sizes
-        List<ParkingCell> row1Cells = Arrays.asList(
-                new ParkingCell(CarSize.SMALL),
-                new ParkingCell(CarSize.MEDIUM),
-                new ParkingCell(CarSize.LARGE)
+        List<ParkingSpot> row1Cells = Arrays.asList(
+                new ParkingSpot(CarSize.SMALL),
+                new ParkingSpot(CarSize.MEDIUM),
+                new ParkingSpot(CarSize.LARGE)
         );
 
-        List<ParkingCell> row2Cells = Arrays.asList(
-                new ParkingCell(CarSize.MEDIUM),
-                new ParkingCell(CarSize.LARGE),
-                new ParkingCell(CarSize.SMALL)
+        List<ParkingSpot> row2Cells = Arrays.asList(
+                new ParkingSpot(CarSize.MEDIUM),
+                new ParkingSpot(CarSize.LARGE),
+                new ParkingSpot(CarSize.SMALL)
         );
 
         // Create parking rows
@@ -26,7 +26,7 @@ public class MainApplication {
                 new ParkingRow(row2Cells)
         );
 
-        // Create parking matrix
+        // Create parking parkingLot
         ParkingLot parkingLot = new ParkingLot(rows);
 
         // Create some cars

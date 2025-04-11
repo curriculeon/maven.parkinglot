@@ -1,7 +1,7 @@
 package com.github.curriculeon.parkinglot.cell;
 
 import com.github.curriculeon.parkinglot.Car;
-import com.github.curriculeon.parkinglot.ParkingCell;
+import com.github.curriculeon.parkinglot.ParkingSpot;
 import com.github.curriculeon.parkinglot.CarSize;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class CanFitTest {
     private void test(final CarSize sizeOfCarToTest, final CarSize... validCarSizesForParking) {
         for (CarSize cellSize : CarSize.values()) {
             // Given
-            final ParkingCell cell = new ParkingCell(cellSize);
+            final ParkingSpot cell = new ParkingSpot(cellSize);
             final Car car = new Car(sizeOfCarToTest);
 
             // When

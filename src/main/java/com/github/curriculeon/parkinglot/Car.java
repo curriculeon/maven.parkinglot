@@ -7,7 +7,7 @@ public class Car {
         this.size = size;
     }
 
-    public CarSize getSize() {
+    public CarSize getCarSize() {
         return size;
     }
 } 
