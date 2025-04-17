@@ -11,7 +11,7 @@ public enum CarRate {
         this.value = value;
     }
 
-    public double getRate(final CarSize size) {
-        return CarRate.valueOf(size.name()).value;
+    public double getValue() {
+        return value;
     }
 }

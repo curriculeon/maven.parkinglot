@@ -8,9 +8,6 @@ public class ParkingTicket {
     private final ParkingSpot spot;
     private final LocalDateTime entryTime;
     private LocalDateTime exitTime;
-    private static final double SMALL_CAR_RATE = 2.0;
-    private static final double MEDIUM_CAR_RATE = 3.0;
-    private static final double LARGE_CAR_RATE = 4.0;
 
     public ParkingTicket(Car car, ParkingSpot spot) {
         this.car = car;
@@ -47,21 +44,6 @@ public class ParkingTicket {
     }
 
     public double getFee() {
-        final long duration = getDuration();
-        final double rate;
-        switch (car.getCarSize()) {
-            case SMALL:
-                rate = SMALL_CAR_RATE;
-                break;
-            case MEDIUM:
-                rate = MEDIUM_CAR_RATE;
-                break;
-            case LARGE:
-                rate = LARGE_CAR_RATE;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected car size: " + car.getCarSize());
-        }
-        return duration * rate;
+        return car.getCarSize().getRate() * getDuration();
     }
 }
